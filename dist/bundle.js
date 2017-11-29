@@ -25154,7 +25154,7 @@ var App = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'container' },
+        { className: 'container-fluid' },
         _react2.default.createElement(
           'div',
           { className: 'jumbotron jumbotron-fluid pl-4 pb-3' },
@@ -25348,7 +25348,7 @@ var CitySearch = function (_Component) {
             value: cityName,
             onChange: this.handleCityName,
             className: 'form-control',
-            placeholder: 'Search for...'
+            placeholder: 'ENTER CITY NAME...'
           }),
           _react2.default.createElement(
             'span',
@@ -26626,15 +26626,6 @@ var _rootReducer = __webpack_require__(260);
 var _rootReducer2 = _interopRequireDefault(_rootReducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import { createStore, applyMiddleware, compose } from 'redux';
-// import { combineReducers } from 'redux';
-// import promiseMiddleware from 'redux-promise-middleware';
-
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compos;
-// const rootStore = createStore(rootReducer, composeEnhancers(applyMiddleware(promiseMiddleware())));
-
-// export default rootStore;
 
 var rootStore = (0, _redux.createStore)(_rootReducer2.default, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 

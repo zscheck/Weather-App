@@ -6,7 +6,7 @@ import SearchHistory from './components/SearchHistory/index';
 export default class App extends Component {
   render() {
     return (
-      <div className='container'>
+      <div className='container-fluid'>
         <div className='jumbotron jumbotron-fluid pl-4 pb-3'>
           <div className='container'>
             <h1 className='display-3 mb-3'>Weather Application</h1>

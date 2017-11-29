@@ -80,7 +80,7 @@ export default class CitySearch extends Component {
             value={ cityName }
             onChange={ this.handleCityName }
             className='form-control'
-            placeholder='Search for...'
+            placeholder='ENTER CITY NAME...'
           />
           <span className='input-group-btn'>
             <button

@@ -25274,9 +25274,9 @@ var CitySearch = function (_Component) {
           cityName = _props.cityName,
           cityButton = _props.cityButton;
 
-      var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=33e8a1e07f499288e98713162709c4f1';
+      var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=33e8a1e07f499288e98713162709c4f1';
       if (e.target.value !== '') {
-        url = 'http://api.openweathermap.org/data/2.5/weather?q=' + e.target.value + '&appid=33e8a1e07f499288e98713162709c4f1';
+        url = 'https://api.openweathermap.org/data/2.5/weather?q=' + e.target.value + '&appid=33e8a1e07f499288e98713162709c4f1';
       }
       // const apiKey = process.env.OpenWeatherMapAPIKey;
       _axios2.default.get(url).then(function (result) {

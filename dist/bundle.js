@@ -25298,7 +25298,7 @@ var CitySearch = function (_Component) {
           pressure: city.main.pressure,
           humidity: city.main.humidity,
           windSpeed: city.wind.speed,
-          condition: city.weather[0].main,
+          condition: city.weather[0].icon,
           id: city.id
         };
         if (cityButton.indexOf(city.name) === -1) {
@@ -25326,8 +25326,6 @@ var CitySearch = function (_Component) {
 
       var _props2 = this.props,
           cityName = _props2.cityName,
-          cityList = _props2.cityList,
-          cityWeather = _props2.cityWeather,
           cityButton = _props2.cityButton;
 
       return _react2.default.createElement(
@@ -26369,6 +26367,7 @@ var CityInformation = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'card-block text-center my-2' },
+            _react2.default.createElement('img', { className: 'img-fluid', src: 'http://openweathermap.org/img/w/' + cityWeather.condition + '.png', alt: 'Weather' }),
             _react2.default.createElement(
               'h3',
               null,
@@ -26686,7 +26685,7 @@ var defaultState = {
     pressure: '0',
     humidity: '0',
     windSpeed: '0',
-    condition: 'condition'
+    condition: '01d'
   },
   cityName: ''
 };

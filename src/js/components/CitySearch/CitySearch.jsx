@@ -45,7 +45,7 @@ export default class CitySearch extends Component {
         pressure: city.main.pressure,
         humidity: city.main.humidity,
         windSpeed: city.wind.speed,
-        condition: city.weather[0].main,
+        condition: city.weather[0].icon,
         id: city.id
       };
       if (cityButton.indexOf(city.name) === -1) {
@@ -68,7 +68,7 @@ export default class CitySearch extends Component {
 
 
   render() {
-    const { cityName, cityList, cityWeather, cityButton } = this.props;
+    const { cityName, cityButton } = this.props;
     return (
       <div className='row p-3'>
         <div className='btn-group' role='group' aria-label='Basic example'>

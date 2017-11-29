@@ -10,6 +10,7 @@ export default class CityInformation extends Component {
             City Information
           </div>
           <div className='card-block text-center my-2'>
+            <img className='img-fluid' src={ `http://openweathermap.org/img/w/${cityWeather.condition}.png` } alt='Weather' />
             <h3>{cityWeather.name}</h3>
             <p>Lat/Long: {cityWeather.lat}, {cityWeather.lon}</p>
           </div>

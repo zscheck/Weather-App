@@ -11,7 +11,7 @@ const defaultState = {
     pressure: '0',
     humidity: '0',
     windSpeed: '0',
-    condition: 'condition'
+    condition: '01d'
   },
   cityName: ''
 };

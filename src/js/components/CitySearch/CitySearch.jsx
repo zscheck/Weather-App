@@ -20,9 +20,9 @@ export default class CitySearch extends Component {
 
   getWeather(e) {
     const { dispatch, cityName, cityButton } = this.props;
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=33e8a1e07f499288e98713162709c4f1`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=33e8a1e07f499288e98713162709c4f1`;
     if (e.target.value !== '') {
-      url = `http://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&appid=33e8a1e07f499288e98713162709c4f1`;
+      url = `https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&appid=33e8a1e07f499288e98713162709c4f1`;
     }
     // const apiKey = process.env.OpenWeatherMapAPIKey;
     axios.get(url)

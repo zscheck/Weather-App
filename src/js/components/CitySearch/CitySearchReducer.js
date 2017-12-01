@@ -25,7 +25,7 @@ export default function CitySearchReducer(state = defaultState, action) {
         ...state,
         cityName: '',
         cityList:
-          [...state.cityList, payload]
+          [payload, ...state.cityList]
       };
     }
 
@@ -34,7 +34,7 @@ export default function CitySearchReducer(state = defaultState, action) {
         ...state,
         cityName: '',
         cityButton:
-         [...state.cityButton, payload]
+         [payload, ...state.cityButton]
       };
     }
 

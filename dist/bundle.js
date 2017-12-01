@@ -25263,6 +25263,7 @@ var CitySearch = function (_Component) {
 
     _this.handleCityName = _this.handleCityName.bind(_this);
     _this.getWeather = _this.getWeather.bind(_this);
+    _this.handleFocus = _this.handleFocus.bind(_this);
     return _this;
   }
 
@@ -25275,8 +25276,10 @@ var CitySearch = function (_Component) {
           cityButton = _props.cityButton;
 
       var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=33e8a1e07f499288e98713162709c4f1';
-      if (e.target.value !== '') {
-        url = 'https://api.openweathermap.org/data/2.5/weather?q=' + e.target.value + '&appid=33e8a1e07f499288e98713162709c4f1';
+      if (e !== undefined) {
+        if (e.target.value !== '') {
+          url = 'https://api.openweathermap.org/data/2.5/weather?q=' + e.target.value + '&appid=33e8a1e07f499288e98713162709c4f1';
+        }
       }
       // const apiKey = process.env.OpenWeatherMapAPIKey;
       _axios2.default.get(url).then(function (result) {
@@ -25312,6 +25315,17 @@ var CitySearch = function (_Component) {
       });
     }
   }, {
+    key: 'handleFocus',
+    value: function handleFocus() {
+      var _this2 = this;
+
+      document.addEventListener('keypress', function (e) {
+        if (e.keyCode === 13) {
+          _this2.getWeather();
+        }
+      });
+    }
+  }, {
     key: 'handleCityName',
     value: function handleCityName(e) {
       var dispatch = this.props.dispatch;
@@ -25322,7 +25336,7 @@ var CitySearch = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _props2 = this.props,
           cityName = _props2.cityName,
@@ -25335,7 +25349,7 @@ var CitySearch = function (_Component) {
           'div',
           { className: 'btn-group', role: 'group', 'aria-label': 'Basic example' },
           cityButton.map(function (city) {
-            return _react2.default.createElement('input', { type: 'button', value: city, className: 'btn btn-primary', onClick: _this2.getWeather });
+            return _react2.default.createElement('input', { type: 'button', value: city, className: 'btn btn-primary', onClick: _this3.getWeather });
           })
         ),
         _react2.default.createElement(
@@ -25346,7 +25360,8 @@ var CitySearch = function (_Component) {
             value: cityName,
             onChange: this.handleCityName,
             className: 'form-control',
-            placeholder: 'ENTER CITY NAME...'
+            placeholder: 'ENTER CITY NAME...',
+            onFocus: this.handleFocus
           }),
           _react2.default.createElement(
             'span',
@@ -26702,7 +26717,7 @@ function CitySearchReducer() {
       {
         return _extends({}, state, {
           cityName: '',
-          cityList: [].concat(_toConsumableArray(state.cityList), [payload])
+          cityList: [payload].concat(_toConsumableArray(state.cityList))
         });
       }
 
@@ -26710,7 +26725,7 @@ function CitySearchReducer() {
       {
         return _extends({}, state, {
           cityName: '',
-          cityButton: [].concat(_toConsumableArray(state.cityButton), [payload])
+          cityButton: [payload].concat(_toConsumableArray(state.cityButton))
         });
       }
 

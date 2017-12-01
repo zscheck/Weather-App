@@ -16,13 +16,16 @@ export default class CitySearch extends Component {
 
     this.handleCityName = this.handleCityName.bind(this);
     this.getWeather = this.getWeather.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   getWeather(e) {
     const { dispatch, cityName, cityButton } = this.props;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=33e8a1e07f499288e98713162709c4f1`;
-    if (e.target.value !== '') {
-      url = `https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&appid=33e8a1e07f499288e98713162709c4f1`;
+    if (e !== undefined) {
+      if (e.target.value !== '') {
+        url = `https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&appid=33e8a1e07f499288e98713162709c4f1`;
+      }
     }
     // const apiKey = process.env.OpenWeatherMapAPIKey;
     axios.get(url)
@@ -60,12 +63,19 @@ export default class CitySearch extends Component {
     });
   }
 
+  handleFocus() {
+    document.addEventListener('keypress', (e) => {
+      if (e.keyCode === 13) {
+        this.getWeather();
+      }
+    });
+  }
+
   handleCityName(e) {
     const { dispatch } = this.props;
     const { value } = e.target;
     dispatch(updateSearch(value));
   }
-
 
   render() {
     const { cityName, cityButton } = this.props;
@@ -81,6 +91,7 @@ export default class CitySearch extends Component {
             onChange={ this.handleCityName }
             className='form-control'
             placeholder='ENTER CITY NAME...'
+            onFocus={ this.handleFocus }
           />
           <span className='input-group-btn'>
             <button
